@@ -1,0 +1,353 @@
+/* 
+============================
+CSS RESET
+============================
+*/
+:root {
+--ff-primary: 'Satoshi', sans-serif;
+--ff-secondary: 'General Sans', sans-serif;
+
+--ff-body: var(--ff-secondary);
+--ff-heading: var(--ff-primary);
+
+--fw-regular: 300;
+--fw-semi-bold: 500;
+--fw-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+* {
+margin: 0;
+padding: 0;
+font-family: var(--ff-primary);
+}
+
+ul[role='list'],
+ol[role='list'] {
+list-style: none;
+}
+
+body {
+  background-color: rgb(10, 10, 10);
+  color: white;
+  /* overflow: hidden; */
+
+}
+
+/* ----- LAYOUT ----- */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: transparent;
+  padding-top: 1em;
+}
+
+
+/* ----- RESPONSIVE NAVIGATION | MOBILE FIRST ----- */
+.logo {
+  font-family: var(--ff-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  border: 2px dotted burlywood;
+  display: inline-block;
+}
+
+.feature-landing h1 {
+  display: none;
+}
+
+.feature-landing span {
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.feature-landing a {
+    text-decoration: none;
+}
+
+a:link {
+  text-decoration:none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover, 
+a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.hamburger {
+  color: red;
+  border: 2px solid red;
+  display: inline-block;
+}
+
+.nav-bar ul {
+  display: flex;
+  list-style-type: none;
+  color: blueviolet;
+  border: 2px solid blueviolet;
+}
+
+.nav-bar ul li a {
+  display: block;
+  font-size: 1.25rem;
+  padding: 0.625em 1.25em; /* padding: 10px 20px; */
+  text-decoration: none;
+  transition: 0.2s;
+  margin: 0 0.3em; /* margin: 0 5px; */
+  border-radius: 30px;
+  color: yellow;
+  border: 2px solid yellow;
+}
+
+.nav-bar ul li a:hover,
+.nav-bar ul li a:focus, {
+  color: blue;
+  background-color: aqua;
+}
+
+.nav-bar ul li a.active,
+.nav-bar ul li a.active {
+  color: white;
+  background-color: black;
+}
+
+nav.nav-bar.active {
+  background-color: pink;
+  height: 100%;
+}
+
+@media only screen and (max-width:768px) {
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger .line {
+    width: 30px;
+    height: 4px;
+    background: darkolivegreen;
+    margin: 0.35em 0;
+  }
+  
+  .nav-bar {
+    height: 0; /* consider making it height viewport height */
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background-color: black;
+    transition: 0.3s;
+    overflow: hidden;
+  }
+
+  .nav-bar.active {
+    height: 30vh; 
+    z-index: 99;
+    /* Why can't I set this to 100vh without the scroll function in the browser coming up? */
+  }
+
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 10vh auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+
+  .nav-bar ul li a {
+    margin-bottom: 0.75em;
+    color: aquamarine;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+}
+
+/* 
+============================
+HERO TEXT HOVER SECTION
+============================
+*/
+@media only screen and (min-width: 767px){
+    .feature-landing h1 {
+        display: block;
+        font-weight: 500;
+        padding-bottom: 0.1em;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+
+/* 
+============================
+HERO TEXT HOVER SECTION
+============================
+*/
+
+hero {
+  margin: auto o;
+  font-size: 2em;
+}
+
+hero > a {
+  color: rgba(255, 255, 255, 0.40);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+hero > a:hover {
+  color: white;
+}
+
+hero > a > span {
+  display: inline;
+  position: relative;
+  z-index: 2;
+}
+
+hero > a:hover > span {  
+    text-shadow: 1px 1px 1px black;
+    /* text-transform: uppercase; */
+}
+
+hero > a > img {
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: transform 250ms, opacity 250ms;
+  pointer-events: none;
+  width: min(40vw, 500px);
+}
+
+hero > a:hover > img {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* 
+============================
+RESUME LAYOUT
+============================
+*/
+
+@media only screen and (min-width: 767px){
+  .resume {
+    display: grid;
+    column-gap: 1em;
+    row-gap: 1em;
+    grid-template-columns: 1fr 2fr;
+    margin: 4em 4em;
+  }
+
+}
+
+/* 
+============================
+SIDEBAR SECTION
+============================
+*/
+
+/* .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: inherit;
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cv {
+    max-width: 200px;
+    border-radius: 50%;
+}
+
+div.content {
+  margin-left: 250px;
+  padding: 1px 16px;
+  height: 1000px;
+  overflow: auto;
+} */
+
+.sidebar {
+  border: 2px solid green;
+  background: hsla(0, 0%, 12%, 1);
+  padding: 2em 2em;
+}
+
+.resume_image {
+  border-radius: 50%;
+  max-width: 15em;
+}
+
+.icons {
+  filter: invert(100%);
+  max-width: 30px;
+  margin-right: 10px;
+}
+
+/* 
+============================
+RESUME_CONTENT SECTION
+============================
+*/
+
+.resume_content {
+  border: 2px solid red;
+  padding: 4em 4em;
+}
+
+/* .resume_header_layout {
+ 
+} */
+
+.resume_header {
+  border: 2px solid palegoldenrod;
+  margin: 0;
+  display: inline;
+}
+
+.resume_header_logo {
+  max-width: 200px;
+  border: 2px solid purple;
+  /* text-align: right; */
+}
+
+.job_description {
+  margin-left: 2em;
+}
+
